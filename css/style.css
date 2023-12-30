@@ -1,0 +1,160 @@
+/*estilização universal */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: content-box;
+}
+
+/*Estilização da Tela do Jogo*/
+.game-board{                  
+    width: 100%;
+    height: 750px;
+    border-bottom: 170px solid #914519; /*espaço que o gameboard ocupa*/
+    margin: 0 auto;
+    position: relative; /*Para o tubo respeitar a borda da tela*/
+    overflow: hidden;
+    background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+/*Estilização do Tubo*/
+.pipe {
+    position: absolute; /*parâmetro que define que nenum tubo interfira no outro*/
+    bottom: 0;
+    width: 80px;
+    z-index: 1;
+    animation: pipe-animation 2500ms infinite linear; /*2 segundos, repetição infinita, velocidade linear */
+}
+
+/*Estilização do Goomba*/
+.goomba {
+    position: absolute; 
+    bottom: 0;
+    width: 80px;
+    z-index: 1;
+    animation: goomba-animation 2000ms infinite linear;
+}
+
+/*Estilização do Mário*/
+.mario {
+    position: absolute;
+    width: 150px;
+    bottom: 0px;
+    z-index: 1;
+}
+
+/*Animação de Pular*/
+.jump {
+    animation: mario-animation 500ms ease-out;
+}
+
+/*Estilização da Nuvem*/
+.clouds {
+    position: absolute;
+    width: 550px;
+    animation: cloud-animation 20s infinite linear;
+}
+
+/*Estilização do Arbusto*/
+.bush {
+    position: absolute;
+    width: 170px;
+    bottom: -5px;
+    z-index: -0;
+    animation: bush-animation 5s infinite linear
+}
+
+.bush1 {
+    position: absolute;
+    width: 170px;
+    bottom: -5px;
+    z-index: -0;
+    animation: bush1-animation 7s infinite linear
+}
+
+.contador {
+    font-size: 24px;
+    position: fixed;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #000;
+    color: #f8f8f8;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+
+/*Animação do Tubo Andando: 100% <- <- -80px*/
+@keyframes pipe-animation {
+    from{
+        right: -850px; /* tubo começa fora da tela*/
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+@keyframes goomba-animation{
+    from{
+        right: -1050px; /* goomba começa fora da tela*/
+    }
+
+    to {
+        right: 100%;
+    }
+}
+
+
+/*Animação do Pulo*/
+@keyframes mario-animation {
+    0% {
+        bottom: 0; /* no começo do movimento o Mário está no chão*/
+    }
+    40% {
+        bottom: 180px;
+    }
+    50% {
+        bottom: 180px; /*no meio do movimento o mário sobe no pico do pulo*/
+    }
+    60%{
+        bottom: 180px;
+    }
+    100% {
+        bottom : 0; /* no final o Mário cai no chão*/
+    }
+}
+
+@keyframes cloud-animation{
+    from{
+        right: -80px; /* tubo começa fora da tela*/
+    }
+
+    to {
+        right: 100%;
+    }
+
+}
+
+@keyframes bush-animation{
+    from{
+        right: -150px; /* tubo começa fora da tela*/
+    }
+
+    to {
+        right: 100%;
+    }
+
+}
+
+@keyframes bush1-animation{
+    from{
+        right: -900px; /* tubo começa fora da tela*/
+    }
+
+    to {
+        right: 100%;
+    }
+
+}
